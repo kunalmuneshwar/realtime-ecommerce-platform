@@ -1,0 +1,35 @@
+
+version: 2
+
+sources:
+  - name: ecommerce
+    database: ecommerce_analytics
+    schema: public
+    tables:
+      - name: events
+        description: Raw e-commerce events ingested from Kafka.
+
+        columns:
+          - name: event_id
+            description: Unique identifier for each event.
+            data_tests:
+              - not_null
+              - unique
+
+          - name: event_type
+            description: Type of e-commerce event.
+            data_tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values:
+                      - product_viewed
+                      - add_to_cart
+                      - order_placed
+                      - payment_success
+                      - payment_failed
+
+          - name: customer_id
+            description: Identifier of the customer.
+            data_tests:
+              - not_null

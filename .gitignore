@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# AWS
+.aws/
+
+# dbt generated files
+ecommerce_dbt/target/
+ecommerce_dbt/dbt_packages/
+ecommerce_dbt/logs/
+
+# Generated event data
+data/raw/*.jsonl
+data/raw/batches/*
+!data/raw/batches/.gitkeep
+
+# Logs
+logs/
+*.log
+
+.idea/
+.DS_Store
+Thumbs.db
